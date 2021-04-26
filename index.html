@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+
+        HTML EXERCISES
+
+        1) Create a title for the page
+        2) Create a heading
+        3) Create an ordered list
+        4) Create a table with 5 columns and 4 rows
+        5) Add an image to each second cell of every row
+        6) Add a anchor link for every image
+        7) Merge together 2 table cells
+        8) Divide the page using a horizontal line
+        9) Create a container with a nested paragraph and a nested unordered list
+        10) Create a footer with some information about the page creator 
+
+        CSS EXERCISES
+
+        11) Give a maximum width to the body and center it in the page
+        12) Set every h1 to be centered
+        13) Change the color of each link in the page
+        14) Create a class with a border
+        15) Set table to have rounded corners
+        16) Add margin between every paragraph
+        17) Create a class which change font size and boldness
+        18) Create a class to hide a content
+        19) Add a green border to each td
+        20) Add a dotted red border to each tr (note: tr does not accept a border property ;-) )
+
+        JS EXERCISES
+
+        21) Given variable x = "John" and y = "Doe", write on the console log "John <> Doe"
+        22) Create an object with properties such name, surname, email
+        23) Delete Email from the previously created object
+        24) Create an array with 10 strings in it
+        25) Print in the console every string in the previous array
+        26) Create an array with 100 random numbers in it
+        27) Wrote a function to get the MAX and the MIN from the previously created array
+        28) Create an array of arrays, in which every array has 10 random numbers
+        29) Create a function that gets 2 arrays and returns the longest one
+        30) Create a function that gets 2 arrays of numbers and returns the one with the higher sum of values
+
+        DOM 
+
+        31) Get element with ID "container" from the page
+        32) Get every "td" from the page
+        33) Create a cycle that prints the text inside every td of the page
+        34) Write a function to change the heading of the page
+        35) Write a function to add an extra row to the table
+        36) Write a function to add the class "test" to each row in the table
+        37) Write a function to add a red background to every link in the page
+        38) Console log "Page loaded" when the page is correctly loaded
+        39) Write a function to add new items to a UL
+        40) Write a function to empty a list
+
+        EXTRA 
+
+        41) Add an eventListener to alert when the mouse is over a link, displaying the URL
+        42) Add a button to hide every image on the page
+        43) Add a button to hide and show the table from the page
+        44) Write a function to sum every number inside the TD (if the content is numeric)
+        45) Delete the last letter from the title each time the user clicks on it
+        46) Change a single TD background color when the user clicks on it
+        47) Add a button DELETE, on click it should delete a random TD from the page
+        48) Add a pink border to a cell when the mouse is over it
+        49) Write a function to add a table with 4 rows and 3 columns programmatically
+        50) Write a function to remove the table from the page
+    -->
+    <title>Homework Strive School</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .test {
+            background: blue;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        a {
+            color: red;
+        }
+
+        .border {
+            border: 2px dotted red;
+        }
+
+        table {
+            border-radius: 20px;
+            width: 100%;
+        }
+
+        p {
+            margin: 10px;
+        }
+
+        .font-bold {
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+
+        .displaynone {
+            display: none;
+        }
+
+        td {
+            /* border: 1px solid greenyellow; */
+            border-top: 2px dotted red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>50 ex solution</h1>
+
+    <ol class="border">
+        <li>First element</li>
+        <li>Second element</li>
+        <li>Third element</li>
+    </ol>
+
+    <table class="border">
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <a href="https://strive.school">
+                        <img src="https://via.placeholder.com/50" alt="Image placeholder" />
+                        <div>Whatever title</div>
+                    </a>
+                </td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                    <a href="https://strive.school">
+                        <img src="https://via.placeholder.com/50" alt="Image placeholder" />
+                    </a>
+                </td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                    <a href="https://strive.school">
+                        <img src="https://via.placeholder.com/50" alt="Image placeholder" />
+                    </a>
+                </td>
+                <td>3</td>
+                <td rowspan="2">4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                    <a href="https://strive.school">
+                        <img src="https://via.placeholder.com/50" alt="Image placeholder" />
+                    </a>
+                </td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr />
+
+    <div>
+        <p class="font-bold">Welcome everyone</p>
+        <ul>
+            <li>First one</li>
+            <li>Second One</li>
+        </ul>
+    </div>
+
+    <div id="mouseovering">
+
+    </div>
+
+    <button onclick="hideImages()">HIDE IMGS</button>
+    <button onclick="toggleTable()">Toggle Table</button>
+    <button onclick="deleteTD()">Delete TD</button>
+
+
+    <footer>
+        Copyright 2021 - <a href="https://google.com">Diego</a>
+    </footer>
+
+    <script>
+        // const x = "John"
+        // const y = "Doe"
+        // console.log(x + " <> " + y)
+
+        const student = {
+            name: "Diego",
+            surname: "Banovaz",
+            email: "diego@strive.school"
+        }
+
+        delete student.email
+
+        const numbers = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+
+        for (let i = 0; i < numbers.length; i++) {
+            console.log(numbers[i])
+        }
+
+        function createArray(size) {
+            if (!size) size = 100
+
+            let randomNumbers = []
+            for (let i = 0; i < size; i++) {
+                const randomNumber = Math.floor(Math.random() * 100)
+                randomNumbers.push(randomNumber)
+            }
+
+            return randomNumbers
+        }
+
+        function MinMax() {
+            // create the array with the numbers in it
+            const array = createArray()
+            let min = array[0]
+            let max = array[0]
+            // create a min and a max variable where I can store the values
+            for (let i = 1; i < array.length; i++) {
+                // iterate thorugh all the elements in the array
+                let currentElement = array[i]
+                // if the element is greater than any other elements, so far, we have a new MAX
+                if (currentElement > max) {
+                    max = currentElement
+                }
+                // if the element is lower than any other elements, so far, we have a new MIN
+                else if (currentElement < min) {
+                    min = currentElement
+                }
+            }
+
+            return {
+                minumum: min,
+                maximum: max
+            }
+        }
+
+        function randomArrayOfArrays() {
+            // initialize the result array
+            const result = []
+            // for 10 times, create a new array
+            for (let i = 0; i < 10; i++) {
+                // const array = createArray(10)
+                // // push the new array into result
+                // result.push(array)
+                result.push(createArray(10))
+            }
+            // return result
+            return result
+        }
+
+        function longestArray(arr1, arr2) {
+            if (arr1.length > arr2.length) {
+                return arr1
+            }
+            else if (arr1.length < arr2.length) {
+                return arr2
+            }
+            else {
+                console.log("They are the same length")
+            }
+        }
+
+        function sumArray(arr) {
+            // create an accumulator
+            let acc = 0
+            // for each element, add it to acc
+            for (let i = 0; i < arr.length; i++) {
+                acc += arr[i]
+            }
+            // return it
+            return acc
+        }
+
+        function biggestArray(arr1, arr2) {
+            let arr1sum = sumArray(arr1)
+            let arr2sum = sumArray(arr2)
+
+            if (arr1sum > arr2sum) {
+                return arr1
+            }
+            else if (arr1sum < arr2sum) {
+                return arr2
+            }
+            else {
+                console.log("They are the same value")
+            }
+        }
+
+
+
+        function reverseArray(arr1) {
+            // create a container for the result
+            let result = []
+            while (arr1.length > 0) {
+                const lastElement = arr1.pop() // get and remove from the original array
+                result.push(lastElement)
+            }
+            // take the last element of the current array, and add it to the new array
+            // until there is something to pop out!
+            return result
+        }
+
+        let array = [1, 2, 3, 4, 5, 6];
+        // [ a, b, c, d, e]
+        // -->___________X
+        //   X__________<--
+        //    -->_____X
+        //      X____<--
+        //         !
+        // [ e, d, c, b, a]
+
+        function reverseArrayInPlace(array) {
+            const middlePoint = array.length / 2
+
+            for (let x = 0; x < middlePoint; x++) { // we'll execute from the beginning to the middle point of the array
+                let temp = array[x]; // we save the value in one of the 2 positions
+                array[x] = array[array.length - x - 1]; // we replace that value with the value of the counterpart on the other half of the array
+                console.log("Replacing the value in ", x, " with the value in ", array.length - x - 1, array[array.length - x - 1])
+                array[array.length - x - 1] = temp; // we use the stored value to replace the counterpart
+                console.log("Replacing the value in ", array.length - x - 1, " with the value stored ", temp)
+            }
+            return array
+        }
+
+        // 31) Get element with ID "container" from the page
+        console.log(document.getElementById("container"))
+        //document.querySelector("#container")
+
+        // 32) Get every "td" from the page
+        document.querySelectorAll("td")
+        document.getElementsByTagName("td")
+
+        // 33) Create a cycle that prints the text inside every td of the page
+        // const tds = document.getElementsByTagName("td")
+        // for(let i = 0; i < tds.length; i ++){
+        //     console.log(tds[i].innerText)
+        // }
+
+        // 34) Write a function to change the heading of the page
+        function changeHeading(newTitle) {
+            document.querySelector("h1").innerText = newTitle
+        }
+        // 35) Write a function to add an extra row to the table
+        function addExtraRow() {
+            const table = document.querySelector("tbody") // get reference to the body
+            const tr = document.createElement("tr") // create the row
+            for (let i = 0; i < 4; i++) { // populate the row with 4 columsn
+                const td = document.createElement("td") //create a table cell
+                td.innerText = i // set the content
+                tr.appendChild(td) // add it to the row
+            }
+            table.appendChild(tr) // add the row to the table
+        }
+        // 36) Write a function to add the class "test" to each row in the table
+
+        function addClassTest() {
+            // take a reference to each row
+            const trs = document.querySelectorAll("tr")
+            // add the class to the classlist
+            for (let i = 0; i < trs.length; i++) {
+                trs[i].classList.add("test")
+            }
+        }
+        // 37) Write a function to add a red background to every link in the page
+        function addRedBg() {
+            const links = document.querySelectorAll("a")
+            for (let i = 0; i < links.length; i++) {
+                links[i].style.background = "red"
+            }
+        }
+        // 38) Console log "Page loaded" when the page is correctly loaded
+
+        window.onload = function () {
+            console.log("Page Loaded")
+
+            //41
+            const links = document.querySelectorAll("a")
+            for (let i = 0; i < links.length; i++) {
+                links[i].addEventListener("mouseover", function (e) {
+                    document.getElementById("mouseovering").innerText = this.href // e.currentTarget.href
+                })
+                links[i].addEventListener("mouseout", function (e) {
+                    document.getElementById("mouseovering").innerText = ""
+                })
+
+            }
+            // 45) Delete the last letter from the title each time the user clicks on it
+            document.querySelector("h1").addEventListener("click", function (e) {
+                const currentText = e.currentTarget.innerText
+                e.currentTarget.innerText = currentText.substr(0, currentText.length - 1)
+            })
+
+
+            // 46) Change a single TD background color when the user clicks on it
+            const tds = document.querySelectorAll("td")
+            for (let i = 0; i < tds.length; i++) {
+                tds[i].addEventListener("click", function (e) {
+                    this.style.background = "red"
+                })
+
+                // 48) Add a pink border to a cell when the mouse is over it
+                tds[i].addEventListener("mouseover", function (e) {
+                    this.style.border = "3px solid pink"
+                })
+
+                tds[i].addEventListener("mouseout", function (e) {
+                    this.style.border = ""
+                })
+            }
+        }
+        // 39) Write a function to add new items to a UL
+        function addUL(text) {
+            const ul = document.querySelector("ul")
+            const li = document.createElement("li")
+            li.innerText = text
+            ul.appendChild(li)
+        }
+        // 40) Write a function to empty a list
+
+        function emptyUL() {
+            const ul = document.querySelector("ul")
+            ul.innerHTML = ""
+        }
+
+        // EXTRA 
+
+        // 41) Add an eventListener to alert when the mouse is over a link, displaying the URL
+        // 42) Add a button to hide every image on the page
+        function hideImages() {
+            const images = document.querySelectorAll("img")
+            for (let i = 0; i < images.length; i++) {
+                images[i].classList.toggle("displaynone")
+            }
+        }
+        // 43) Add a button to hide and show the table from the page
+        function toggleTable() {
+            const table = document.querySelector("table")
+            table.classList.toggle("displaynone")
+        }
+        // 44) Write a function to sum every number inside the TD (if the content is numeric)
+        function sumTDS() {
+            const tds = document.querySelectorAll("td")
+            let sum = 0
+            for (let i = 0; i < tds.length; i++) {
+                const content = tds[i].innerText // extracting the content from the cell
+                const numericContent = parseFloat(content) // parsing the content as a number
+                if (!isNaN(numericContent)) { // is that really a number or something else?
+                    sum += numericContent // add it if it is a number
+                    // isNaN returns TRUE if the variable is NON at number
+                }
+            }
+
+            return sum
+        }
+
+
+
+        // 47) Add a button DELETE, on click it should delete a random TD from the page
+        function deleteTD() {
+            // get all the tds from the page
+            const tds = document.querySelectorAll("td")
+            // randomly pick one of them
+            const numberToDelete = Math.floor(Math.random() * tds.length)
+            // remove the td
+            tds[numberToDelete].remove()
+        }
+
+
+        // 49) Write a function to add a table with 4 rows and 3 columns programmatically
+
+        function createTable() {
+            const table = document.createElement("table")
+            table.id = "programmicallycreated"
+            for (let i = 0; i < 4; i++) { //create 4 rows
+                const row = document.createElement("tr")
+                for (let j = 0; j < 3; j++) { // create 3 columsn for each row
+                    const td = document.createElement("td")
+                    td.innerHTML = "row" + i + " col " + j
+                    row.appendChild(td)
+                }
+                table.appendChild(row)
+            }
+            document.querySelector("body").appendChild(table)
+        }
+        // 50) Write a function to remove the table from the page
+
+        function removeTable() {
+            document.getElementById("programmicallycreated").remove()
+        }
+
+
+    </script>
+
+</body>
+
+</html>
